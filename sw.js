@@ -14,6 +14,12 @@ var assets = ['index.html',
 './assets/src/fontawesome-free-5.15.1-web/js/all.min.js',
 './assets/src/js/map.js',
 './assets/img/watertap.png',
+'./assets/img/SW.png',
+'./assets/img/GW.png',
+'./assets/img/People_Comittee.png',
+'./assets/img/view1.jpg',
+'./assets/img/view2.jpg',
+'./assets/src/images/layers-2x.png',
 ];
 
 // Install SW
