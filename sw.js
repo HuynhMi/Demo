@@ -1,4 +1,5 @@
 var staticNameCache = 'site-static';
+var dynamicNameCache = 'site-dynamic';
 var assets = ['index.html',
 './assets/src/css/main.css',
 './manifest.json',
@@ -46,7 +47,7 @@ self.addEventListener('activate', e => {
             // console.log(keys);
             // access to every cache, if nameCaches doesn't to current nameCache, keep it in array, then delete that array. 
             return Promise.all(
-                keys.filter(key => key !== staticNameCache).map(key => caches.delete(key)));
+                keys.filter(key => (key !== staticNameCache && key !==dynamicNameCache)).map(key => caches.delete(key)));
         }
         )
     )
@@ -61,6 +62,16 @@ self.addEventListener('fetch', e => {
         caches.match(e.request).then(cacheRes => {
             // if fit, it take resources from caches, after respond to do something as display on screen,.. but if it isn't there, means don't have fit resources in caches, it will make a normal request to server.
             return cacheRes || fetch(e.request)
+            // if cache ko có resource cần tìm, thì y/c dc gửi đến máy chủ và nhận respond từ máy chủ:fetchRes
+            .then(fetchRes => {
+                // tạo một caches with name is dynamicNameCache;
+                return caches.open(dynamicNameCache)
+                .then(cache => {
+                    // here ko sử dụng addAll do addAll là method access to server, here đã có resource nên chỉ put vào
+                    cache.put(e.request.url, fetchRes.clone());
+                    return fetchRes;
+                })
+            })
         })
     )
 
