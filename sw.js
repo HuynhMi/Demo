@@ -8,7 +8,12 @@ var assets = ['index.html',
 './assets/src/fontawesome-free-5.15.1-web/css/all.min.css',
 './assets/src/leaflet.js',
 './assets/src/jquery-3.2.0.min.js',
-
+'./assets/src/plugins/leaflet.ajax.js',
+'./assets/src/plugins/L.Control.Sidebar.js',
+'./assets/src/plugins/easy-button.js',
+'./assets/src/fontawesome-free-5.15.1-web/js/all.min.js',
+'./assets/src/js/map.js',
+'./assets/img/watertap.png',
 ];
 
 // Install SW
