@@ -14,7 +14,7 @@
 }
 
 .txtHeading {
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     font-weight: 500;
@@ -149,24 +149,4 @@
     background: #ffffff96;
     padding: 2px 5px;
     font-size: 15px;
-}
-
-
-/* btn */
-.leaflet-touch .leaflet-bar a, .leaflet-touch .leaflet-bar button {
-    width: 44px!important;
-    height: 44px!important;
-    line-height: 44px!important;
-}
-
-.leaflet-touch .leaflet-control-zoom-in {
-    font-size: 32px!important;
-}
-
-.leaflet-touch .leaflet-control-zoom-out {
-    font-size: 32px!important;
-}
-
-.easy-button-button .button-state {
-    font-size: 22px !important;
 }

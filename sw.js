@@ -1,6 +1,8 @@
 var staticNameCache = 'site-static';
 var dynamicNameCache = 'site-dynamic';
 var assets = ['index.html',
+'./Desktop/index.html',
+'./Desktop/main.css',
 './assets/src/css/main.css',
 './manifest.json',
 './assets/src/leaflet.css',
@@ -14,6 +16,7 @@ var assets = ['index.html',
 './assets/src/plugins/easy-button.js',
 './assets/src/fontawesome-free-5.15.1-web/js/all.min.js',
 './assets/src/js/map.js',
+'./Desktop/map.js',
 './assets/img/watertap.png',
 './assets/img/SW.png',
 './assets/img/GW.png',

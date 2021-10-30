@@ -1,9 +1,4 @@
 // DESKTOP
-if(!isMobile()) {
-    if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
-        window.location.href = "../Desktop/index.html";
-    }
-}
     var mymap;
     var lyrOSM;
     var lyrTopo;
@@ -39,17 +34,17 @@ $(document).ready(() => {
 
     //  **********  ICON Initialization  **********
     icnKio = L.icon({
-        iconUrl: './assets/img/watertap.png',
+        iconUrl: '../assets/img/watertap.png',
         iconSize: [20,20]
     })
 
     icnSW = L.icon({
-        iconUrl: './assets/img/SW.png',
+        iconUrl: '../assets/img/SW.png',
         iconSize: [25,25]
     })
 
     icnGW = L.icon({
-        iconUrl: './assets/img/GW.png',
+        iconUrl: '../assets/img/GW.png',
         iconSize: [25,25]
     })
 
@@ -59,32 +54,32 @@ $(document).ready(() => {
     lyrSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}');
     lyrOSMFrance = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
     //  **********  Overlay Layer Initialization  **********
-    lyrKio = L.geoJSON.ajax('./assets/data/lyrKiosk.geojson', {
+    lyrKio = L.geoJSON.ajax('../assets/data/lyrKiosk.geojson', {
         pointToLayer: styleKio
     }).addTo(mymap);
 
     
-    lyrWtp = L.geoJSON.ajax('./assets/data/lyrWtp.geojson', {
+    lyrWtp = L.geoJSON.ajax('../assets/data/lyrWtp.geojson', {
         pointToLayer: styleWtp
     }).addTo(mymap)
 
-    lyrPeopleComittee = L.geoJSON.ajax('./assets/data/lyrPeopleComittee.geojson', {
+    lyrPeopleComittee = L.geoJSON.ajax('../assets/data/lyrPeopleComittee.geojson', {
         pointToLayer: stylePeopleCommittee
     }).addTo(mymap)
 
-    lyrHamlet = L.geoJSON.ajax('./assets/data/lyrHamlet.geojson', {
+    lyrHamlet = L.geoJSON.ajax('../assets/data/lyrHamlet.geojson', {
         pointToLayer: styleHamlet
     })
 
-    lyrBrDis = L.geoJSON.ajax('./assets/data/lyrBrDistrict.geojson', {
+    lyrBrDis = L.geoJSON.ajax('../assets/data/lyrBrDistrict.geojson', {
         style: styleDistrict
     }).addTo(mymap)
 
-    lyrBrComm = L.geoJSON.ajax('./assets/data/lyrBrCommune.geojson', {
+    lyrBrComm = L.geoJSON.ajax('../assets/data/lyrBrCommune.geojson', {
         style: styleComm
     }).addTo(mymap)
 
-    lyrBrPro = L.geoJSON.ajax('./assets/data/lyrBrProvince.geojson', {
+    lyrBrPro = L.geoJSON.ajax('../assets/data/lyrBrProvince.geojson', {
         style: styleProvince
     }).addTo(mymap)
 
@@ -106,7 +101,7 @@ $(document).ready(() => {
 
     //  **********  Control Initialization  **********
     ctlScale = L.control.scale({imperial: false}).addTo(mymap);
-    ctlLayers = L.control.layers(objBase, objOverlay, {collapsed: true}).addTo(mymap);
+    ctlLayers = L.control.layers(objBase, objOverlay, {collapsed: false}).addTo(mymap);
     ctlSidebar = L.control.sidebar('sidebar', {
         position: 'left'
     }).addTo(mymap)
@@ -150,9 +145,9 @@ function styleProvince(jsn) {
 function styleKio(jsn,ll) {
     var att = jsn.properties;
     var strPopup = '<div class="divPopupKiosk">'
-    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="./assets/img/view1.jpg"></image></div>'
-    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="./assets/img/view2.jpg"></image></div>'
-    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="./assets/img/view1.jpg"></image></div>'
+    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="../assets/img/view1.jpg"></image></div>'
+    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="../assets/img/view2.jpg"></image></div>'
+    + '<div class="divPopupKiosk__img"><image class="kioskImg" src="../assets/img/view1.jpg"></image></div>'
     + '<div class="divPopupKiosk__rightIcon" onclick="plusSlides(1)"><i class="fas fa-chevron-right"></i></div>'
     + '<div class="divPopupKiosk__leftIcon" onclick="minusSlides(1)"><i class="fas fa-chevron-left"></i> </div>'
     + '<h3 class="txtKiosk">' + att.Ten + '</h3>'
@@ -258,16 +253,6 @@ function showSlides(n) {
     slides[n-1].style.display = "block";
 }
 
-function isMobile() {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-
 function returnIcnStart(size) {
-    return icnStart = L.icon({iconUrl: './assets/img/People_Comittee.png',iconSize: size})
+    return icnStart = L.icon({iconUrl: '../assets/img/People_Comittee.png',iconSize: size})
 }
