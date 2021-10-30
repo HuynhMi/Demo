@@ -1,4 +1,4 @@
-var staticNameCache = 'site-static-v0';
+var staticNameCache = 'site-static';
 var assets = ['index.html',
 './assets/src/css/main.css',
 '/manifest.json',
