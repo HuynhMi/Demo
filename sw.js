@@ -20,6 +20,10 @@ var assets = ['index.html',
 './assets/img/view1.jpg',
 './assets/img/view2.jpg',
 './assets/src/images/layers-2x.png',
+'./assets/src/images/layers.png',
+'./assets/src/images/marker-icon-2x.png',
+'./assets/src/images/marker-icon.png',
+'./assets/src/images/marker-shadow.png'
 ];
 
 // Install SW
