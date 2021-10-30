@@ -1,0 +1,16 @@
+{
+    "short_name": "Hawasuco Web",
+    "name": "Hawasuco Web",
+    "start_url": "/index.html",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "theme_color": "#3367D6",
+    "icons": [
+        {
+          "src": "./assets/img/appicon.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "any maskable"
+        }
+      ]
+  }

@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "lyrKiosk",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "Ten": "TRƯỜNG TIỂU HỌC LƯƠNG NGHĨA 1", "Name": "Luong Nghia 1 Primary School", "Address": "Địa chỉ: Xã Lương Nghĩa, Huyện Long Mỹ, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.417178, 9.602698 ] } },
+{ "type": "Feature", "properties": { "fid": 2, "Ten": "TRƯỜNG TIỂU HỌC LƯƠNG NGHĨA 2", "Name": "Luong Nghia 2 Primary School", "Address": "Địa chỉ: Xã Lương Nghĩa, Huyện Long Mỹ, Tỉnh Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.411469, 9.610019 ] } },
+{ "type": "Feature", "properties": { "fid": 3, "Ten": "TRƯỜNG MẪU GIÁO LƯƠNG NGHĨA", "Name": "Kindergarten Luong Nghia School", "Address": "Địa chỉ: Xã Lương Nghĩa, Huyện Long Mỹ, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.414997, 9.605237 ] } },
+{ "type": "Feature", "properties": { "fid": 4, "Ten": "TRƯỜNG THCS LƯƠNG NGHĨA", "Name": "Luong Nghia Secondary School", "Address": "Địa chỉ: Xã Lương Nghĩa, Huyện Long Mỹ, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.414521, 9.602216 ] } },
+{ "type": "Feature", "properties": { "fid": 5, "Ten": "TRƯỜNG TIỂU HỌC XÀ PHIÊN 2", "Name": "Xa Phien 2 Primary School", "Address": "Địa chỉ: Xã Xà Phiên, Huyện Long Mỹ, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.488732, 9.60872 ] } },
+{ "type": "Feature", "properties": { "fid": 6, "Ten": "TRƯỜNG THCS XÀ PHIÊN", "Name": "Xa Phien Secondary School", "Address": "Địa chỉ: Xã Xà Phiên, Huyện Long Mỹ, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.511735, 9.609003 ] } },
+{ "type": "Feature", "properties": { "fid": 7, "Ten": "TRƯỜNG TIỂU HỌC LƯƠNG TÂM 2", "Name": "Luong Tam 2 Primary School", "Address": "Địa chỉ: ấp 11, xã Lương Tâm, Huyện Long Mỹ, tỉnh Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.4200542, 9.6175039 ] } },
+{ "type": "Feature", "properties": { "fid": 8, "Ten": "TRẠM CẤP NƯỚC LƯƠNG TÂM", "Name": "Luong Tam Water Treatment Plant", "Address": "Địa chỉ: xã Lương Tâm, Huyện Long Mỹ, tỉnh Hậu Giang (đối diện Đền Thờ Bác Hồ Lương Tâm)" }, "geometry": { "type": "Point", "coordinates": [ 105.4550208, 9.6196731 ] } },
+{ "type": "Feature", "properties": { "fid": 9, "Ten": "TRƯỜNG TIỂU HỌC TÂN PHÚ THẠNH 2", "Name": "Tan Phu Thanh 2 Primary School", "Address": "Địa chỉ: Xã Tân Phú Thạnh, Huyện Châu Thành A, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.726572, 9.940529 ] } },
+{ "type": "Feature", "properties": { "fid": 10, "Ten": "TRƯỜNG TIỂU HỌC TÂN PHÚ THẠNH 1", "Name": "Tan Phu Thanh 1 Primary School", "Address": "Địa chỉ: Xã Tân Phú Thạnh, Huyện Châu Thành A, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.720486, 9.948228 ] } },
+{ "type": "Feature", "properties": { "fid": 11, "Ten": "TRƯỜNG MẪU GIÁO TUỔI THƠ", "Name": "Tuoi Tho Kindergarten School", "Address": "Địa chỉ: Xã Tân Phú Thạnh, Huyện Châu Thành A, Hậu Giang" }, "geometry": { "type": "Point", "coordinates": [ 105.720432, 9.948714 ] } }
+]
+}

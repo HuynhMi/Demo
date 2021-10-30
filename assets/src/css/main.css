@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.wrapper {
+    height: 100vh;
+}
+.divHeading {
+    height: 30px;
+    width: 100%;
+    background: rgb(58, 138, 212);
+    text-align: center;
+    line-height: 30px;
+}
+
+.txtHeading {
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    
+}
+#mymap {
+    height: calc(100% - 30px);
+}
+
+.div__sideBar__content {
+    padding: 25px 0;
+}
+.div__sideBar__item {
+}
+.div__sideBar__header {
+    display: flex;
+    justify-content: center;
+}
+
+.btnToggle {
+    font-size: 17px;
+    margin: 0 3px;
+}
+.sideBar__title {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+
+}
+.divLegend__title {
+    text-align: center;
+    font-size: 14px;
+    /* padding-bottom: 7px; */
+}
+
+.divSeparation {
+    border-bottom: 1px solid #c3c3c3;
+    margin: 3px 0 10px 0;
+}
+#svgBasemapGroup {
+    padding: 7px 0;
+}
+
+/* KIOSK POPUP */
+.divPopupKiosk {
+
+}
+
+.divPopupKiosk__img {
+    position: relative;
+}
+
+.kioskImg {
+    height: 100%;
+    width: 100%;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+.divPopupKiosk__rightIcon {
+    position: absolute;
+    top: 30%;
+    right: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+
+
+.divPopupKiosk__leftIcon {
+    position: absolute;
+    top: 30%;
+    left: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+
+.txtKiosk {
+    font-size: 12px;
+    padding: 10px 10px 0 10px;
+}
+.contentKiosk {
+    margin: 0!important;
+    padding: 10px;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+    display: none!important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0!important;
+}
+
+/* WTP POPUP */
+.wtpPopup {
+    padding: 10px 5px;
+}
+
+.wtpPopup > p {
+    margin: 0!important;
+}
+
+/* PEOPLE COMMITTEE POPUP */
+.peopleCommitteePopup {
+    padding: 5px 3px;
+}
+
+/* LOCATION INFORMATION */
+.divLocation {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    z-index: 1000;
+    background: #ffffff96;
+    padding: 2px 5px;
+    font-size: 15px;
+}
