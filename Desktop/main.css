@@ -58,6 +58,9 @@
     padding: 7px 0;
 }
 
+.divLegend__Overlay {
+    max-height: 80px;
+}
 /* KIOSK POPUP */
 .divPopupKiosk {
 

@@ -126,11 +126,16 @@ $(document).ready(() => {
         $('.divLocation').html(setLL(e));
     })
 
-
-
-
-    
+    // Status Browser
+    if(isOnline()) {
+        $('#txtStatusBrowser').html('Online');
+    } else {
+        $('#txtStatusBrowser').html('Offline');
+    }  
 })
+function isOnline() {
+    return navigator.onLine;
+}
     
 function setLL(ll){
     var strLL = '[' + ll.latlng.lat.toFixed(5) + ';' + ll.latlng.lng.toFixed(5) + ']';

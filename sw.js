@@ -1,7 +1,7 @@
 var staticNameCache = 'site-static';
 var dynamicNameCache = 'site-dynamic';
 var assets = ['index.html',
-'./Desktop/index.html',
+'./Desktop/desktop.html',
 './Desktop/main.css',
 './assets/src/css/main.css',
 './manifest.json',

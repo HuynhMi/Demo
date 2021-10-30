@@ -3,10 +3,14 @@
     margin: 0;
 }
 .wrapper {
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 .divHeading {
-    height: 17px;
+    height: 30px;
     width: 100%;
     background: rgb(58, 138, 212);
     text-align: center;
@@ -14,7 +18,7 @@
 }
 
 .txtHeading {
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     font-weight: 500;

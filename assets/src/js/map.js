@@ -4,6 +4,14 @@ if(!isMobile()) {
         window.location.href = "./Desktop/desktop.html";
     }
 }
+
+// if(isOnline()) {
+//     alert('You are online!');
+// } else {
+//     alert('You are offline!');
+// }
+
+
     var mymap;
     var lyrOSM;
     var lyrTopo;
@@ -132,10 +140,17 @@ $(document).ready(() => {
     })
 
 
-
+    // Status Browser
+    if(isOnline()) {
+        $('#txtStatusBrowser').html('Online');
+    } else {
+        $('#txtStatusBrowser').html('Offline');
+    }  
 
     
 })
+
+
     
 function setLL(ll){
     var strLL = '[' + ll.latlng.lat.toFixed(5) + ';' + ll.latlng.lng.toFixed(5) + ']';
@@ -270,4 +285,8 @@ function isMobile() {
 
 function returnIcnStart(size) {
     return icnStart = L.icon({iconUrl: './assets/img/People_Comittee.png',iconSize: size})
+}
+
+function isOnline() {
+    return navigator.onLine;
 }
