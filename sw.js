@@ -1,7 +1,7 @@
 var staticNameCache = 'site-static';
 var assets = ['index.html',
 './assets/src/css/main.css',
-'/manifest.json',
+'./manifest.json',
 './assets/src/leaflet.css',
 './assets/src/plugins/L.Control.Sidebar.css',
 './assets/src/plugins/easy-button.css',
