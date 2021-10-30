@@ -1,30 +1,6 @@
 var staticNameCache = 'site-static';
 var assets = ['index.html',
 './assets/src/css/main.css',
-'/manifest.json',
-'./assets/src/leaflet.css',
-'./assets/src/plugins/L.Control.Sidebar.css',
-'./assets/src/plugins/easy-button.css',
-'./assets/src/font/fontawesome-free-5.15.1-web/css/all.min.css',
-'./assets/src/leaflet.js',
-'./assets/src/jquery-3.2.0.min.js',
-'./assets/src/plugins/leaflet.ajax.js',
-'./assets/src/plugins/L.Control.Sidebar.js',
-'./assets/src/plugins/easy-button.js',
-'./assets/src/font/fontawesome-free-5.15.1-web/js/all.min.js',
-'./assets/src/js/map.js',
-'./assets/img/watertap.png',
-'./assets/img/SW.png',
-'./assets/img/GW.png',
-'./assets/img/People_Comittee.png',
-'./assets/img/view1.jpg',
-'./assets/img/view2.jpg',
-'./assets/src/images/layers-2x.png',
-'./assets/src/images/layers.png',
-'./assets/src/images/marker-icon-2x.png',
-'./assets/src/images/marker-icon.png',
-'./assets/src/images/marker-shadow.png',
-'./assets/img/appicon.png'
 ];
 
 // Install SW
