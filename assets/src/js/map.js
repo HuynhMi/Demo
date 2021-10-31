@@ -28,6 +28,7 @@ if(!isMobile()) {
     var ctlLayers;
     var ctlSidebar;
     var ctlEasyButton;
+    var ctlLocate;
     var objBase;
     var objOverlay;
     var icnKio;
@@ -131,6 +132,10 @@ $(document).ready(() => {
         ctlSidebar.toggle();
     }).addTo(mymap)
 
+    ctlLocate = L.easyButton('fas fa-map-marker-alt', () => {
+        mymap.locate();
+    }).addTo(mymap);
+
     // Handler event
     $('#btnOverlayToggle').click(function() {
         $('#svgOverlayGroup').toggle();
@@ -172,15 +177,15 @@ $(document).ready(() => {
         console.log('Not found your location!');
     })
 
-    $('#btnLocate').click(() => {
-        if($('#btnLocate').html() == 'Locate') {
-            mymap.locate();
-            $('#btnLocate').html('Remove Locate');
-        } else {
-            mymap.removeLayer(featureCollect);
-            $('#btnLocate').html('Locate');
-        }
-    })
+    // $('#btnLocate').click(() => {
+    //     if($('#btnLocate').html() == 'Locate') {
+    //         mymap.locate();
+    //         $('#btnLocate').html('Remove Locate');
+    //     } else {
+    //         mymap.removeLayer(featureCollect);
+    //         $('#btnLocate').html('Locate');
+    //     }
+    // })
 
 })
 
