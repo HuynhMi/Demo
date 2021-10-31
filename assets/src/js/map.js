@@ -34,6 +34,7 @@ if(!isMobile()) {
     var icnSW;
     var icnGW;
     var icnStart;
+    var icnLocate;
     var slideIndex = 1;
     
 
@@ -58,6 +59,11 @@ $(document).ready(() => {
 
     icnGW = L.icon({
         iconUrl: './assets/img/GW.png',
+        iconSize: [25,25]
+    })
+
+    icnLocate = L.icon({
+        iconUrl: './assets/img/location.png',
         iconSize: [25,25]
     })
 
@@ -136,18 +142,46 @@ $(document).ready(() => {
 
     // HANDLER EVENT
     mymap.on('mousemove', (e) => {
-        $('.divLocation').html(setLL(e));
+        $('#txtMouseLocation').html(setLL(e));
     })
-
+    $('#txtZoomLevel').html(mymap.getZoom());
+    mymap.on('zoomend', e => {
+        $('#txtZoomLevel').html(mymap.getZoom());
+    })
 
     // Status Browser
     if(isOnline()) {
         $('#txtStatusBrowser').html('Online');
     } else {
         $('#txtStatusBrowser').html('Offline');
-    }  
-
+    } 
     
+    // LOCATE
+    var featureCollect = L.layerGroup();
+    mymap.on('locationfound', e => {
+        featureCollect.clearLayers();
+        // console.log(e);
+        var ll = e.latlng;
+        L.marker(ll, {icon: icnLocate}).addTo(featureCollect);
+        L.circleMarker(ll, {radius:30, color: 'red'}).addTo(featureCollect);
+        mymap.flyTo(ll, 18);
+        featureCollect.addTo(mymap);        
+    })
+
+    mymap.on('locationerror', e => {
+        console.log('Not found your location!');
+    })
+
+    $('#btnLocate').click(() => {
+        if($('#btnLocate').html() == 'Locate') {
+            mymap.locate();
+            $('#btnLocate').html('Remove Locate');
+        } else {
+            mymap.removeLayer(featureCollect);
+            $('#btnLocate').html('Locate');
+        }
+    })
+
 })
 
 

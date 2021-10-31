@@ -54,6 +54,10 @@
     /* padding-bottom: 7px; */
 }
 
+.divLegend__Overlay {
+    max-height: 60px;
+}
+
 .divSeparation {
     border-bottom: 1px solid #c3c3c3;
     margin: 3px 0 10px 0;
@@ -145,18 +149,35 @@
 }
 
 /* LOCATION INFORMATION */
-.divLocation {
-    position: absolute;
+.divInformation {
+    position: fixed;
     bottom: 5px;
     right: 0;
     z-index: 1000;
-    background: #ffffff96;
+    text-align: center;
+}
+
+.divInformation__item {
+    background: #ffffffb0;
     padding: 2px 5px;
-    font-size: 15px;
+    font-size: 12.5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BTN */
+.btn {
+    width: 100%;
+    height: 25px;
+    background-color: rgb(62, 243, 198);
+    border: 1px solid rgb(0, 119, 79);
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 
-/* btn */
+
+/* btn in leaflet */
 .leaflet-touch .leaflet-bar a, .leaflet-touch .leaflet-bar button {
     width: 44px!important;
     height: 44px!important;

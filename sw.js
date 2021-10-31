@@ -1,4 +1,4 @@
-var staticNameCache = 'site-static';
+var staticNameCache = 'site-static-v0';
 var dynamicNameCache = 'site-dynamic';
 var assets = ['index.html',
 './Desktop/desktop.html',
