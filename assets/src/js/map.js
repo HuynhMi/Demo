@@ -1,9 +1,9 @@
 // DESKTOP
-if(!isMobile()) {
-    if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
-        window.location.href = "./Desktop/desktop.html";
-    }
-}
+// if(!isMobile()) {
+//     if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
+//         window.location.href = "./Desktop/desktop.html";
+//     }
+// }
 
 // if(isOnline()) {
 //     alert('You are online!');
@@ -132,8 +132,16 @@ $(document).ready(() => {
         ctlSidebar.toggle();
     }).addTo(mymap)
 
-    ctlLocate = L.easyButton('fas fa-map-marker-alt', () => {
-        mymap.locate();
+    ctlLocate = L.easyButton('fas fa-map-marker-alt btnLocate', () => {
+        // if($('#btnLocate').style.color == 'red')
+        var clrBtnLocate = $('.btnLocate').css("color");
+        if(clrBtnLocate == 'rgb(0, 0, 0)') {
+            $('.btnLocate').css("color", 'red');
+            mymap.locate();
+        } else {
+            $('.btnLocate').css("color", 'black');
+            mymap.removeLayer(featureCollect);
+        }
     }).addTo(mymap);
 
     // Handler event
@@ -164,6 +172,7 @@ $(document).ready(() => {
     // LOCATE
     var featureCollect = L.layerGroup();
     mymap.on('locationfound', e => {
+
         featureCollect.clearLayers();
         // console.log(e);
         var ll = e.latlng;
@@ -174,7 +183,7 @@ $(document).ready(() => {
     })
 
     mymap.on('locationerror', e => {
-        console.log('Not found your location!');
+        alert('Not found your location!');
     })
 
     // $('#btnLocate').click(() => {
