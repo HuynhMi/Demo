@@ -141,7 +141,7 @@ $(document).ready(() => {
     })
 
     // HANDLER EVENT
-    mymap.on('mousemove', (e) => {
+    mymap.on('contextmenu', (e) => {
         $('#txtMouseLocation').html(setLL(e));
     })
     $('#txtZoomLevel').html(mymap.getZoom());
