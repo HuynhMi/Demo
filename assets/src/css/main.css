@@ -10,22 +10,22 @@
     bottom: 0;
 }
 .divHeading {
-    height: 30px;
+    height: 40px;
     width: 100%;
     background: rgb(58, 138, 212);
     text-align: center;
-    line-height: 30px;
+    line-height: 38px;
 }
 
 .txtHeading {
-    font-size: 17px;
+    font-size: 23px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(255, 255, 255);
     font-weight: 500;
     
 }
 #mymap {
-    height: calc(100% - 30px);
+    height: calc(100% - 40px);
 }
 
 .div__sideBar__content {
