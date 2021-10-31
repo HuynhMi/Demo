@@ -1,16 +1,9 @@
 // DESKTOP
-// if(!isMobile()) {
-//     if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
-//         window.location.href = "./Desktop/desktop.html";
-//     }
-// }
-
-// if(isOnline()) {
-//     alert('You are online!');
-// } else {
-//     alert('You are offline!');
-// }
-
+if(!isMobile()) {
+    if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
+        window.location.href = "./Desktop/desktop.html";
+    }
+}
 
     var mymap;
     var lyrOSM;
