@@ -1,9 +1,9 @@
-// DESKTOP
-// if(!isMobile()) {
-//     if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
-//         window.location.href = "./Desktop/desktop.html";
-//     }
-// }
+DESKTOP
+if(!isMobile()) {
+    if(confirm("Your device is not a mobile. \n\ Do you want to open the Desktop site?")) {
+        window.location.href = "./Desktop/desktop.html";
+    }
+}
 
     var mymap;
     var lyrOSM;
