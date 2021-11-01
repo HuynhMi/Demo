@@ -152,7 +152,7 @@ $(document).ready(() => {
         $('#txtZoomLevel').html(mymap.getZoom());
     })
     
-    
+
     // LOCATE
     var featureCollect = L.layerGroup();
     mymap.on('locationfound', e => {
@@ -182,7 +182,7 @@ $(document).ready(() => {
 
 function refreshData() {
     // Kiosk
-    lyrKio = L.geoJSON.ajax('./assets/data/lyrKiosk.geojson', {
+    lyrKio = L.geoJSON.ajax('../assets/data/lyrKiosk.geojson', {
         pointToLayer: styleKio
     });
     
@@ -191,7 +191,7 @@ function refreshData() {
         localStorage.setItem('jsnKio', JSON.stringify(jsnKio));
     })
     // wtp
-    lyrWtp = L.geoJSON.ajax('./assets/data/lyrWtp.geojson', {
+    lyrWtp = L.geoJSON.ajax('../assets/data/lyrWtp.geojson', {
         pointToLayer: styleWtp
     })
 
@@ -200,7 +200,7 @@ function refreshData() {
         localStorage.setItem('jsnWtp', JSON.stringify(jsnWtp));
     })
 
-    lyrPeopleComittee = L.geoJSON.ajax('./assets/data/lyrPeopleComittee.geojson', {
+    lyrPeopleComittee = L.geoJSON.ajax('../assets/data/lyrPeopleComittee.geojson', {
         pointToLayer: stylePeopleCommittee
     })
 
@@ -209,7 +209,7 @@ function refreshData() {
         localStorage.setItem('jsnPeopleComittee', JSON.stringify(jsnPeopleComittee));
     })
 
-    lyrHamlet = L.geoJSON.ajax('./assets/data/lyrHamlet.geojson', {
+    lyrHamlet = L.geoJSON.ajax('../assets/data/lyrHamlet.geojson', {
         pointToLayer: styleHamlet
     })
 
@@ -218,7 +218,7 @@ function refreshData() {
         localStorage.setItem('jsnHamlet', JSON.stringify(jsnHamlet));
     })
 
-    lyrBrDis = L.geoJSON.ajax('./assets/data/lyrBrDistrict.geojson', {
+    lyrBrDis = L.geoJSON.ajax('../assets/data/lyrBrDistrict.geojson', {
         style: styleDistrict
     })
 
@@ -227,7 +227,7 @@ function refreshData() {
         localStorage.setItem('jsnBrDis', JSON.stringify(jsnBrDis));
     })
 
-    lyrBrComm = L.geoJSON.ajax('./assets/data/lyrBrCommune.geojson', {
+    lyrBrComm = L.geoJSON.ajax('../assets/data/lyrBrCommune.geojson', {
         style: styleComm
     })
 
@@ -236,7 +236,7 @@ function refreshData() {
         localStorage.setItem('jsnBrComm', JSON.stringify(jsnBrComm));
     })
 
-    lyrBrPro = L.geoJSON.ajax('./assets/data/lyrBrProvince.geojson', {
+    lyrBrPro = L.geoJSON.ajax('../assets/data/lyrBrProvince.geojson', {
         style: styleProvince
     })
 
@@ -244,8 +244,6 @@ function refreshData() {
         jsnBrPro = lyrBrPro.toGeoJSON();
         localStorage.setItem('jsnBrPro', JSON.stringify(jsnBrPro));
     })
-
-
 }
 
 function isOnline() {
