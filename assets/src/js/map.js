@@ -22,6 +22,7 @@ if(!isMobile()) {
     var ctlSidebar;
     var ctlEasyButton;
     var ctlLocate;
+    var ctlHome;
     var objBase;
     var objOverlay;
     var icnKio;
@@ -43,7 +44,7 @@ $(document).ready(() => {
     //  **********  Map Initialization  **********
     mymap = L.map('mymap', {
         center: [9.787807, 105.616158], 
-        zoom: 11, 
+        zoom: 10, 
         attributionControl: false
     });
 
@@ -143,8 +144,11 @@ $(document).ready(() => {
             mymap.removeLayer(featureCollect);
         }
     }).addTo(mymap);
+    ctlHome = L.easyButton('fas fa-home btnHome', () => {
+        mymap.setView([9.787807, 105.616158],10);
+    }).addTo(mymap);
 
-    // Handler event
+    // Handler event: BTN
     $('#btnOverlayToggle').click(function() {
         $('#svgOverlayGroup').toggle();
     })
@@ -161,7 +165,7 @@ $(document).ready(() => {
         }
     })
     
-    // HANDLER EVENT
+    // HANDLER EVENT: MAP
     mymap.on('contextmenu', (e) => {
         $('#txtMouseLocation').html(setLL(e));
     })
@@ -173,7 +177,6 @@ $(document).ready(() => {
     // LOCATE
     var featureCollect = L.layerGroup();
     mymap.on('locationfound', e => {
-
         featureCollect.clearLayers();
         // console.log(e);
         var ll = e.latlng;

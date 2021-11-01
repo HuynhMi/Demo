@@ -15,6 +15,7 @@
     var ctlLayers;
     var ctlSidebar;
     var ctlEasyButton;
+    var ctlHome;
     var objBase;
     var objOverlay;
     var icnKio;
@@ -125,6 +126,10 @@ $(document).ready(() => {
         ctlSidebar.toggle();
     }).addTo(mymap)
 
+    ctlHome = L.easyButton('fas fa-home btnHome', () => {
+        mymap.setView([9.78350,105.47630],11);
+    }).addTo(mymap);
+
     // Handler event
     $('#btnOverlayToggle').click(function() {
         $('#svgOverlayGroup').toggle();
@@ -151,13 +156,23 @@ $(document).ready(() => {
     mymap.on('zoomend', e => {
         $('#txtZoomLevel').html(mymap.getZoom());
     })
+
+    var lyrClickMouse;
+    mymap.on('contextmenu', (e) => {
+        if(lyrClickMouse) {
+            lyrClickMouse.remove();
+        }
+        // console.log(setLL(e));
+        lyrClickMouse = L.circleMarker(e.latlng, {radius: 9}).bindTooltip(setLL(e));
+        lyrClickMouse.openTooltip();
+        lyrClickMouse.addTo(mymap);
+    })
     
 
     // LOCATE
     var featureCollect = L.layerGroup();
     mymap.on('locationfound', e => {
         featureCollect.clearLayers();
-        // console.log(e);
         var ll = e.latlng;
         L.marker(ll, {icon: icnLocate}).addTo(featureCollect);
         L.circleMarker(ll, {radius:30, color: 'red'}).addTo(featureCollect);
