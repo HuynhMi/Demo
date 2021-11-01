@@ -23,6 +23,13 @@
     var icnStart;
     var icnLocate;
     var slideIndex = 1;
+    var jsnKio;
+    var jsnWtp;
+    var jsnPeopleComittee;
+    var jsnHamlet;
+    var jsnBrDis;
+    var jsnBrComm;
+    var jsnBrPro;
     
 
 $(document).ready(() => {
@@ -62,35 +69,33 @@ $(document).ready(() => {
     lyrSatellite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}');
     lyrOSMFrance = L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
     //  **********  Overlay Layer Initialization  **********
-    lyrKio = L.geoJSON.ajax('../assets/data/lyrKiosk.geojson', {
-        pointToLayer: styleKio
-    }).addTo(mymap);
-
+    if(localStorage.getItem('jsnBrPro')) {
+        jsnBrPro = JSON.parse(localStorage.getItem('jsnBrPro'));
+        lyrBrPro = L.geoJSON(jsnBrPro, {style: styleProvince}).addTo(mymap);
+        jsnKio = JSON.parse(localStorage.getItem('jsnKio'));
+        lyrKio = L.geoJSON(jsnKio, {pointToLayer: styleKio}).addTo(mymap);
+        jsnWtp = JSON.parse(localStorage.getItem('jsnWtp'));
+        lyrWtp = L.geoJSON(jsnWtp, {pointToLayer: styleWtp}).addTo(mymap);
+        jsnPeopleComittee = JSON.parse(localStorage.getItem('jsnPeopleComittee'));
+        lyrPeopleComittee = L.geoJSON(jsnPeopleComittee, {pointToLayer: stylePeopleCommittee}).addTo(mymap);
+        jsnHamlet = JSON.parse(localStorage.getItem('jsnHamlet'));
+        lyrHamlet = L.geoJSON(jsnHamlet, {pointToLayer: styleHamlet});
+        jsnBrDis = JSON.parse(localStorage.getItem('jsnBrDis'));
+        lyrBrDis = L.geoJSON(jsnBrDis, {style: styleDistrict}).addTo(mymap);
+        jsnBrComm = JSON.parse(localStorage.getItem('jsnBrComm'));
+        lyrBrComm = L.geoJSON(jsnBrComm, {style: styleComm}).addTo(mymap);
+        alert('Loaded data from localStorage');
+    } else {
+        refreshData();
+        lyrBrPro.addTo(mymap);
+        lyrKio.addTo(mymap);
+        lyrWtp.addTo(mymap);
+        lyrPeopleComittee.addTo(mymap);
+        lyrBrDis.addTo(mymap);
+        lyrBrComm.addTo(mymap);
+        alert('Downloaded data from server');
+    }
     
-    lyrWtp = L.geoJSON.ajax('../assets/data/lyrWtp.geojson', {
-        pointToLayer: styleWtp
-    }).addTo(mymap)
-
-    lyrPeopleComittee = L.geoJSON.ajax('../assets/data/lyrPeopleComittee.geojson', {
-        pointToLayer: stylePeopleCommittee
-    }).addTo(mymap)
-
-    lyrHamlet = L.geoJSON.ajax('../assets/data/lyrHamlet.geojson', {
-        pointToLayer: styleHamlet
-    })
-
-    lyrBrDis = L.geoJSON.ajax('../assets/data/lyrBrDistrict.geojson', {
-        style: styleDistrict
-    }).addTo(mymap)
-
-    lyrBrComm = L.geoJSON.ajax('../assets/data/lyrBrCommune.geojson', {
-        style: styleComm
-    }).addTo(mymap)
-
-    lyrBrPro = L.geoJSON.ajax('../assets/data/lyrBrProvince.geojson', {
-        style: styleProvince
-    }).addTo(mymap)
-
 
     //  **********  Layer Group  **********
     objBase = {
@@ -129,9 +134,16 @@ $(document).ready(() => {
         $('#svgBasemapGroup').toggle();
     })
 
+    $('#btnRefreshData').click(() => {
+        if(isOnline()) {
+            alert('Refreshing data from server');
+            refreshData();
+        } else {
+            alert('No internet connection is available \n\Try again later when you have a internet connection');
+        }
+    })
+
     // HANDLER EVENT
-
-
     mymap.on('mousemove', (e) => {
         $('#txtMouseLocation').html(setLL(e));
     })
@@ -140,16 +152,7 @@ $(document).ready(() => {
         $('#txtZoomLevel').html(mymap.getZoom());
     })
     
-
-
-    // Status Browser
-    if(isOnline()) {
-        $('#txtStatusBrowser').html('Online');
-    } else {
-        $('#txtStatusBrowser').html('Offline');
-    }
-
-
+    
     // LOCATE
     var featureCollect = L.layerGroup();
     mymap.on('locationfound', e => {
@@ -176,6 +179,75 @@ $(document).ready(() => {
         }
     })
 })
+
+function refreshData() {
+    // Kiosk
+    lyrKio = L.geoJSON.ajax('./assets/data/lyrKiosk.geojson', {
+        pointToLayer: styleKio
+    });
+    
+    lyrKio.on('data:loaded', () => {
+        jsnKio = lyrKio.toGeoJSON();
+        localStorage.setItem('jsnKio', JSON.stringify(jsnKio));
+    })
+    // wtp
+    lyrWtp = L.geoJSON.ajax('./assets/data/lyrWtp.geojson', {
+        pointToLayer: styleWtp
+    })
+
+    lyrWtp.on('data:loaded', () => {
+        jsnWtp = lyrWtp.toGeoJSON();
+        localStorage.setItem('jsnWtp', JSON.stringify(jsnWtp));
+    })
+
+    lyrPeopleComittee = L.geoJSON.ajax('./assets/data/lyrPeopleComittee.geojson', {
+        pointToLayer: stylePeopleCommittee
+    })
+
+    lyrPeopleComittee.on('data:loaded', () => {
+        jsnPeopleComittee = lyrPeopleComittee.toGeoJSON();
+        localStorage.setItem('jsnPeopleComittee', JSON.stringify(jsnPeopleComittee));
+    })
+
+    lyrHamlet = L.geoJSON.ajax('./assets/data/lyrHamlet.geojson', {
+        pointToLayer: styleHamlet
+    })
+
+    lyrHamlet.on('data:loaded', () => {
+        jsnHamlet = lyrHamlet.toGeoJSON();
+        localStorage.setItem('jsnHamlet', JSON.stringify(jsnHamlet));
+    })
+
+    lyrBrDis = L.geoJSON.ajax('./assets/data/lyrBrDistrict.geojson', {
+        style: styleDistrict
+    })
+
+    lyrBrDis.on('data:loaded', () => {
+        jsnBrDis = lyrBrDis.toGeoJSON();
+        localStorage.setItem('jsnBrDis', JSON.stringify(jsnBrDis));
+    })
+
+    lyrBrComm = L.geoJSON.ajax('./assets/data/lyrBrCommune.geojson', {
+        style: styleComm
+    })
+
+    lyrBrComm.on('data:loaded', () => {
+        jsnBrComm = lyrBrComm.toGeoJSON();
+        localStorage.setItem('jsnBrComm', JSON.stringify(jsnBrComm));
+    })
+
+    lyrBrPro = L.geoJSON.ajax('./assets/data/lyrBrProvince.geojson', {
+        style: styleProvince
+    })
+
+    lyrBrPro.on('data:loaded', () => {
+        jsnBrPro = lyrBrPro.toGeoJSON();
+        localStorage.setItem('jsnBrPro', JSON.stringify(jsnBrPro));
+    })
+
+
+}
+
 function isOnline() {
     return navigator.onLine;
 }
